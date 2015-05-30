@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Path.Direction;
+import android.graphics.RectF;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
@@ -44,8 +46,38 @@ public class PathView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
 
         path = new Path();
-        path.moveTo(0, getHeight());
-        path.lineTo(getWidth(), 0);
+
+        path.addCircle(
+                getWidth() / 2,
+                getHeight() / 2,
+                2 * getWidth() / 7,
+                Direction.CW
+        );
+
+        path.addCircle(
+                2 * getWidth() / 5,
+                3 * getHeight() / 7,
+                3 * pathPaint.getStrokeWidth(),
+                Direction.CW
+        );
+
+        path.addCircle(
+                3 * getWidth() / 5,
+                3 * getHeight() / 7,
+                3 * pathPaint.getStrokeWidth(),
+                Direction.CW
+        );
+
+        path.addArc(
+                new RectF(
+                        getWidth() / 2 - 2 * getWidth() / 7,
+                        getHeight() / 2 - 3 * getWidth() / 7,
+                        getWidth() / 2 + 2 * getWidth() / 7,
+                        getHeight() / 2 + getWidth() / 7
+                ),
+                45,
+                90
+        );
     }
 
     @Override
