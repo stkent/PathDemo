@@ -2,6 +2,7 @@ package com.github.stkent.pathdemo;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
@@ -11,7 +12,6 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import static android.graphics.Color.BLACK;
-import static android.graphics.Color.CYAN;
 import static android.graphics.Paint.ANTI_ALIAS_FLAG;
 import static android.graphics.Paint.Style.STROKE;
 
@@ -61,28 +61,14 @@ public class PathView extends View {
                 Direction.CW
         );
 
-        path.addCircle(
-                3 * getWidth() / 5,
-                3 * getHeight() / 7,
-                3 * pathPaint.getStrokeWidth(),
-                Direction.CW
-        );
+        path.addCircle(3 * getWidth() / 5, 3 * getHeight() / 7, 3 * pathPaint.getStrokeWidth(), Direction.CW);
 
-        path.addArc(
-                new RectF(
-                        getWidth() / 2 - 2 * getWidth() / 7,
-                        getHeight() / 2 - 3 * getWidth() / 7,
-                        getWidth() / 2 + 2 * getWidth() / 7,
-                        getHeight() / 2 + getWidth() / 7
-                ),
-                45,
-                90
-        );
+        path.addArc(new RectF(getWidth() / 2 - 2 * getWidth() / 7, getHeight() / 2 - 3 * getWidth() / 7, getWidth() / 2 + 2 * getWidth() / 7, getHeight() / 2 + getWidth() / 7), 45, 90);
     }
 
     @Override
     protected void onDraw(@NonNull final Canvas canvas) {
-        canvas.drawColor(CYAN);
+        canvas.drawColor(Color.parseColor("#6600CC33"));
         canvas.drawPath(path, pathPaint);
     }
 
