@@ -61,9 +61,22 @@ public class PathView extends View {
                 Direction.CW
         );
 
-        path.addCircle(3 * getWidth() / 5, 3 * getHeight() / 7, 3 * pathPaint.getStrokeWidth(), Direction.CW);
+        path.addCircle(
+                3 * getWidth() / 5,
+                3 * getHeight() / 7,
+                3 * pathPaint.getStrokeWidth(),
+                Direction.CW
+        );
 
-        path.addArc(new RectF(getWidth() / 2 - 2 * getWidth() / 7, getHeight() / 2 - 3 * getWidth() / 7, getWidth() / 2 + 2 * getWidth() / 7, getHeight() / 2 + getWidth() / 7), 45, 90);
+        path.addArc(
+                new RectF(
+                        getWidth() / 2 - 2 * getWidth() / 7,
+                        getHeight() / 2 - 3 * getWidth() / 7,
+                        getWidth() / 2 + 2 * getWidth() / 7,
+                        getHeight() / 2 + getWidth() / 7),
+                45,
+                90
+        );
     }
 
     @Override
